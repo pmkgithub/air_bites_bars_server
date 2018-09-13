@@ -30,12 +30,8 @@ const app = express();
 app.use(morgan('combined'));
 app.use(cors(corsOptions));
 
-app.get('/', (req, res, next) => {
-  console.log('hello world');
-});
-
+// get Restaurant Venues.
 app.get('/bites', (req, res, next) => {
-
   const lat = req.query.lat;
   const lng = req.query.lng;
   const BITES_URL = `${API_ROOT_URL}?${FS_CLIENT_ID}&${FS_CLIENT_SECRET}&v=20180323&ll=${lat},${lng}&${RADIUS_2MI}&${LIMIT_50}&${FOOD_CAT}`;
@@ -50,6 +46,7 @@ app.get('/bites', (req, res, next) => {
   });
 });
 
+// get Bar Venues.
 app.get('/bars', (req, res, next) => {
   const lat = req.query.lat;
   const lng = req.query.lng;
