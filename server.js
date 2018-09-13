@@ -2,17 +2,15 @@
 const express = require('express');
 const morgan = require('morgan');
 const request = require('request');
+require('dotenv').config();
 
-// set in config.js
-const {
-  PORT,
-  CLIENT_ORIGIN,
-  API_ROOT_URL,
-  FS_CLIENT_ID,
-  FS_CLIENT_SECRET,
-  FOOD_CAT,
-  BAR_CAT
-} = require('./config');
+const PORT = process.env.PORT;
+const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN;
+const API_ROOT_URL = process.env.API_ROOT_URL;
+const FS_CLIENT_ID = process.env.FS_CLIENT_ID;
+const FS_CLIENT_SECRET = process.env.FS_CLIENT_SECRET;
+const FOOD_CAT = process.env.FOOD_CAT;
+const BAR_CAT = process.env.BAR_CAT;
 
 // locally set
 const RADIUS_2MI = `radius=${1609.34 * 2}`;
