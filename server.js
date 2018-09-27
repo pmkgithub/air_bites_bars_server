@@ -37,7 +37,10 @@ app.get('/bites', (req, res, next) => {
   // request to FourSquare API.
   request(BITES_URL, (err, response, body) => {
     if (err) {
+
+      res.json({"error": "Error fetching from API"});
       return console.dir(err);
+
     }
     res.send(body);
     next();
@@ -53,6 +56,7 @@ app.get('/bars', (req, res, next) => {
   // request to FourSquare API.
   request(BARS_URL, (err, response, body) => {
     if (err) {
+      res.json({"error": "Error fetching from API"});
       return console.dir(err);
     }
     res.send(body);
